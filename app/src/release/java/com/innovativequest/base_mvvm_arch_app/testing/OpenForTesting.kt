@@ -1,4 +1,4 @@
-package com.innovativequest.base_mvvm_arch_app_github.testing
+package com.innovativequest.base_mvvm_app_coroutines.testing
 
 @Target(AnnotationTarget.CLASS)
 annotation class OpenForTesting

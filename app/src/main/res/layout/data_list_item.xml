@@ -15,22 +15,22 @@
 
     <data>
         <import type="com.bumptech.glide.request.RequestListener"/>
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.Resource" />
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.Resource" />
         <import type="android.graphics.drawable.Drawable"/>
 
 
         <variable
             name="dataListItem"
-            type="com.innovativequest.base_mvvm_arch_app_github.model.DataListItem" />
+            type="com.innovativequest.base_mvvm_app_coroutines.model.DataListItem" />
 
 
         <variable
             name="userResource"
-            type="com.innovativequest.base_mvvm_arch_app_github.model.Resource" />
+            type="com.innovativequest.base_mvvm_app_coroutines.model.Resource" />
 
         <variable
             name="retryCallback"
-            type="com.innovativequest.base_mvvm_arch_app_github.ui.common.RetryCallback" />
+            type="com.innovativequest.base_mvvm_app_coroutines.ui.common.RetryCallback" />
 
         <variable
             name="imageRequestListener"

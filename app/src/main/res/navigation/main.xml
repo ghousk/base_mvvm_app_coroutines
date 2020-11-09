@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/repoFragment"
-        android:name="com.innovativequest.base_mvvm_arch_app_github.ui.detail.ItemDetailFragment"
+        android:name="com.innovativequest.base_mvvm_app_coroutines.ui.detail.ItemDetailFragment"
         android:label="RepoFragment">
         <action
             android:id="@+id/showUser"
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/dataListItemsFragment"
-        android:name="com.innovativequest.base_mvvm_arch_app_github.ui.datalistitems.DataListItemsFragment"
+        android:name="com.innovativequest.base_mvvm_app_coroutines.ui.datalistitems.DataListItemsFragment"
         android:label="DataListItemsFragment">
         <action
             android:id="@+id/showRepo"

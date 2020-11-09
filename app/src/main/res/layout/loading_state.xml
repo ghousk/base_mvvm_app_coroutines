@@ -12,9 +12,9 @@
 
     <data>
 
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.Resource" />
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.Resource" />
 
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.Status" />
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.Status" />
 
         <variable
             name="resource"
@@ -22,7 +22,7 @@
 
         <variable
             name="callback"
-            type="com.innovativequest.base_mvvm_arch_app_github.ui.common.RetryCallback" />
+            type="com.innovativequest.base_mvvm_app_coroutines.ui.common.RetryCallback" />
     </data>
 
     <LinearLayout

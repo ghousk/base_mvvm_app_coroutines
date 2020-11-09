@@ -12,26 +12,26 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.Status" />
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.Status" />
 
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.Resource" />
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.Resource" />
 
         <import type="androidx.lifecycle.LiveData"/>
-        <import type="com.innovativequest.base_mvvm_arch_app_github.model.DataListItem"/>
+        <import type="com.innovativequest.base_mvvm_app_coroutines.model.DataListItem"/>
         <import type="com.bumptech.glide.request.RequestListener"/>
         <import type="android.graphics.drawable.Drawable"/>
 
         <variable
             name="userResource"
-            type="com.innovativequest.base_mvvm_arch_app_github.model.Resource" />
+            type="com.innovativequest.base_mvvm_app_coroutines.model.Resource" />
 
         <variable
             name="dataListItemResponse"
-            type="LiveData&lt;Resource&lt;com.innovativequest.base_mvvm_arch_app_github.model.DataListItemResponse>>" />
+            type="LiveData&lt;Resource&lt;com.innovativequest.base_mvvm_app_coroutines.model.DataListItemResponse>>" />
 
         <variable
             name="retryCallback"
-            type="com.innovativequest.base_mvvm_arch_app_github.ui.common.RetryCallback" />
+            type="com.innovativequest.base_mvvm_app_coroutines.ui.common.RetryCallback" />
 
         <variable
             name="imageRequestListener"

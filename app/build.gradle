@@ -9,18 +9,18 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
-    annotation 'com.innovativequest.base_mvvm_arch_app_github.testing.OpenClass'
+    annotation 'com.innovativequest.base_mvvm_app_coroutines.testing.OpenClass'
 }
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "com.innovativequest.base_mvvm_arch_app_github"
+        applicationId "com.innovativequest.base_mvvm_app_coroutines"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "com.innovativequest.base_mvvm_arch_app_github.util.AppTestRunner"
+        testInstrumentationRunner "com.innovativequest.base_mvvm_app_coroutines.util.AppTestRunner"
     }
     buildTypes {
         debug {

@@ -9,7 +9,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.innovativequest.base_mvvm_arch_app_github">
+    package="com.innovativequest.base_mvvm_app_coroutines">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application tools:ignore="GoogleAppIndexingWarning">
