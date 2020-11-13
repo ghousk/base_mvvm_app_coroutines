@@ -4,6 +4,9 @@ jobs:
     working_directory: ~/code
     docker:
       - image: circleci/android:api-30-alpha
+        auth:
+          username: ghousk
+          password: Baba2575!23 # context / project UI env-var reference
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
