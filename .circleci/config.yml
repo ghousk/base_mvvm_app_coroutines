@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-30-alpha
+      - image: circleci/android:api-28-alpha
         auth:
           username: ghousk
           password: Baba2575!23 # context / project UI env-var reference
