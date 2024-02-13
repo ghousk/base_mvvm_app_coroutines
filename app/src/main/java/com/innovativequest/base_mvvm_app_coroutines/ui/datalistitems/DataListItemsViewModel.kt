@@ -34,14 +34,6 @@ class DataListItemsViewModel
         }
     }
 
-    fun setId(id: String) {
-        val update = DataListItemId(id)
-        if (_dataListItemId.value == update) {
-            return
-        }
-        _dataListItemId.value = update
-    }
-
     data class DataListItemId(val id: String) {
         fun <T> ifExists(f: (String) -> LiveData<T>): LiveData<T> {
             return if (id.isBlank()) {

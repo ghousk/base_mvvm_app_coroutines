@@ -1,6 +1,5 @@
 
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
@@ -50,10 +49,6 @@ android {
     }
 }
 
-jacoco {
-    toolVersion = "0.7.4+"
-}
-
 dependencies {
     implementation deps.support.app_compat
     implementation deps.support.recyclerview
@@ -83,10 +78,16 @@ dependencies {
     kapt deps.room.compiler
     kapt deps.lifecycle.compiler
 
+    testImplementation deps.kotlin.test
     testImplementation deps.junit
+    androidTestImplementation deps.atsl.ext_junit
+    androidTestImplementation deps.junitKtx
+
     testImplementation deps.mock_web_server
     testImplementation deps.arch_core.testing
+
     testImplementation deps.mockito.core
+    testImplementation deps.mockito.kotlin
 
     androidTestImplementation deps.atsl.core
     androidTestImplementation deps.atsl.runner
@@ -100,36 +101,7 @@ dependencies {
     androidTestImplementation deps.espresso.core
     androidTestImplementation deps.espresso.contrib
 
-    androidTestImplementation deps.arch_core.testing
-    androidTestImplementation deps.mockito.core
-    androidTestImplementation deps.mockito.android
-}
-
-task fullCoverageReport(type: JacocoReport) {
-    dependsOn 'createDebugCoverageReport'
-    dependsOn 'testDebugUnitTest'
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*',
-                      '**/*Test*.*', 'android/**/*.*',
-                      '**/*_MembersInjector.class',
-                      '**/Dagger*Component.class',
-                      '**/Dagger*Component$Builder.class',
-                      '**/*_*Factory.class',
-                      '**/*ComponentImpl.class',
-                      '**/*SubComponentBuilder.class']
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-
-    sourceDirectories = files([mainSrc])
-    classDirectories = files([debugTree])
-    executionData = fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec",
-            "outputs/code-coverage/connected/*coverage.ec"
-    ])
+    androidTestImplementation deps.arch_core_testing.testing
 }
 
 // we need all open to run tests which  a we enable only for debug builds.

@@ -9,6 +9,7 @@
 package com.innovativequest.base_mvvm_app_coroutines.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.innovativequest.base_mvvm_app_coroutines.AppExecutors
 import com.innovativequest.base_mvvm_app_coroutines.api.ApiResponse
 import com.innovativequest.base_mvvm_app_coroutines.api.DataService
@@ -41,10 +42,13 @@ class DataListItemsRepository @Inject constructor(
 ) {
 
     private val repoListRateLimit = RateLimiter<String>(10, TimeUnit.MINUTES)
+    private val dataListItemResponseData = MutableLiveData<DataListItemResponse>()
+
 
     fun loadDataListItemResponses(): LiveData<Resource<DataListItemResponse>> {
         return object : NetworkBoundResource<DataListItemResponse, DataListItemResponse>(appExecutors) {
             override fun saveCallResult(item: DataListItemResponse) {
+                dataListItemResponseData.postValue(item)
                 dataListItemDao.insertDataListItemResponses(item)
             }
 
@@ -90,6 +94,8 @@ class DataListItemsRepository @Inject constructor(
             }
         }.asLiveData()
     }
+
+    fun dataListItemResponse(): LiveData<DataListItemResponse> = dataListItemResponseData
 
     /**
      * Check if a time stamp from prefs is outdated

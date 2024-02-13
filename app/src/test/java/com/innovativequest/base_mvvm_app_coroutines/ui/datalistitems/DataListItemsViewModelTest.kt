@@ -9,28 +9,40 @@
 package com.innovativequest.base_mvvm_app_coroutines.ui.datalistitems
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.Observer
 import com.innovativequest.base_mvvm_app_coroutines.repository.DataListItemsRepository
 import com.innovativequest.base_mvvm_app_coroutines.util.mock
+import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.reset
 import org.mockito.Mockito.verify
 import org.mockito.Mockito.verifyNoMoreInteractions
 
-//@RunWith(JUnit4::class)
+@RunWith(JUnit4::class)
 class DataListItemsViewModelTest {
+
+    private lateinit var SUT: DataListItemsViewModel
+    private lateinit var dataListItemsRepository: DataListItemsRepository
+
     @Rule
     @JvmField
     val instantExecutorRule = InstantTaskExecutorRule()
 
-    private val dataListItemsRepository = mock(DataListItemsRepository::class.java)
-    private val dataListItemViewModel = DataListItemsViewModel(dataListItemsRepository)
+    @Before
+    fun setUp() {
+        dataListItemsRepository = mock(DataListItemsRepository::class.java)
+        SUT = DataListItemsViewModel(dataListItemsRepository)
+    }
 
-//    @Test
+    @Test
     fun loadRepositories() {
-        dataListItemViewModel.dataListItems.observeForever(mock())
+
+        SUT.dataListItems.observeForever(mock())
         verifyNoMoreInteractions(dataListItemsRepository)
-        dataListItemViewModel.setId("123456")
         verify(dataListItemsRepository).loadDataListItemResponses()
         reset(dataListItemsRepository)
         verifyNoMoreInteractions(dataListItemsRepository)
