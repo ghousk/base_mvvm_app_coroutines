@@ -20,12 +20,17 @@ import javax.inject.Inject
 
 @OpenForTesting
 class DataListItemsViewModel
-@Inject constructor(repository: DataListItemsRepository) : ViewModel() {
+@Inject constructor(private val repository: DataListItemsRepository) : ViewModel() {
     private val _dataListItemId: MutableLiveData<DataListItemId> = MutableLiveData()
     val dataListItemId: LiveData<DataListItemId>
         get() = _dataListItemId
-    val dataListItems: LiveData<Resource<DataListItemResponse>> =
-                repository.loadDataListItemResponses()
+    private val _dataListItems: MutableLiveData<Resource<DataListItemResponse>> = MutableLiveData()
+    val dataListItems: LiveData<Resource<DataListItemResponse>>
+        get() = _dataListItems
+
+    fun loadDataListItems(){
+        repository.loadDataListItemResponses().observeForever { _dataListItems.postValue(it) }
+    }
 
     fun retry() {
         val id = _dataListItemId.value?.id

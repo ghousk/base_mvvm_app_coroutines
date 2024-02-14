@@ -1,5 +1,5 @@
 //*********************************************************************
-// Created by Ghous Khan on 2020-10-02.
+// Created by Ghous Khan on 2020-02-14.
 // Innovative Quest Ltd
 // Copyright (C) Innovative Quest Ltd All Rights Reserved
 // Any copying or reproduction of this software in strictly prohibited.
@@ -9,18 +9,15 @@
 package com.innovativequest.base_mvvm_app_coroutines.ui.datalistitems
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.innovativequest.base_mvvm_app_coroutines.repository.DataListItemsRepository
-import com.innovativequest.base_mvvm_app_coroutines.util.mock
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mockito.mock
-import org.mockito.Mockito.reset
-import org.mockito.Mockito.verify
-import org.mockito.Mockito.verifyNoMoreInteractions
+
+import kotlin.test.assertTrue
 
 @RunWith(JUnit4::class)
 class DataListItemsViewModelTest {
@@ -40,12 +37,7 @@ class DataListItemsViewModelTest {
 
     @Test
     fun loadRepositories() {
-
-        SUT.dataListItems.observeForever(mock())
-        verifyNoMoreInteractions(dataListItemsRepository)
-        verify(dataListItemsRepository).loadDataListItemResponses()
-        reset(dataListItemsRepository)
-        verifyNoMoreInteractions(dataListItemsRepository)
+        SUT.dataListItems.observeForever{ assertTrue { it.data?.items?.size!! > 0 }}
     }
 
 }

@@ -110,8 +110,6 @@ class ItemDetailFragment : Fragment(), Injectable {
         binding.dataListItemResponse = itemDetailViewModel.dataListItemResponseById
 
         initItemDetail()
-//        navController().navigate(
-//            ItemDetailFragmentDirections.showUser())
     }
 
 

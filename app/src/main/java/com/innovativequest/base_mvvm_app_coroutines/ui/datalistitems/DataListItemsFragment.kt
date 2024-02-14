@@ -108,6 +108,7 @@ class DataListItemsFragment : Fragment(), Injectable {
     }
 
     private fun initRepoList() {
+        dataListItemsViewModel.loadDataListItems()
         dataListItemsViewModel.dataListItems.observe(viewLifecycleOwner, Observer { repos ->
             adapter.submitList(repos?.data?.items)
         })
